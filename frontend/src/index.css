@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+    :root {
+        /* WAAH CONNECT Brand Colors - Black, White, Pink Theme */
+        --background: 0 0% 100%;
+        --foreground: 0 0% 5%;
+        
+        /* Primary - Vibrant Hot Pink from logo */
+        --primary: 330 100% 71%;
+        --primary-foreground: 0 0% 100%;
+        --primary-glow: 330 100% 80%;
+        
+        /* Secondary - Soft Pink for subtle elements */
+        --secondary: 351 100% 86%;
+        --secondary-foreground: 0 0% 5%;
+        
+        /* Accent - Pure Black for bold contrast */
+        --accent: 0 0% 0%;
+        --accent-foreground: 0 0% 100%;
+        
+        /* Muted - Light pink/gray backgrounds */
+        --muted: 330 30% 96%;
+        --muted-foreground: 0 0% 40%;
+        
+        /* Card backgrounds */
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 5%;
+        
+        /* Popover */
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 5%;
+        
+        /* Borders and inputs */
+        --border: 330 20% 90%;
+        --input: 330 20% 90%;
+        --ring: 330 100% 71%;
+        
+        /* Destructive */
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        
+        /* Success */
+        --success: 142 76% 36%;
+        --success-foreground: 0 0% 100%;
+        
+        /* Gradients */
+        --gradient-pink: linear-gradient(135deg, hsl(330 100% 71%), hsl(351 100% 86%));
+        --gradient-pink-intense: linear-gradient(135deg, hsl(330 100% 65%), hsl(330 100% 80%));
+        --gradient-black-pink: linear-gradient(135deg, hsl(0 0% 5%), hsl(330 50% 20%));
+        --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(330 30% 98%));
+        
+        /* Shadows */
+        --shadow-elegant: 0 10px 40px -10px hsl(330 100% 71% / 0.25);
+        --shadow-glow: 0 0 50px hsl(330 100% 71% / 0.3);
+        --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
+        --shadow-hover: 0 8px 30px hsl(330 100% 71% / 0.2);
+        
+        /* Animations */
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        
+        --radius: 0.75rem;
+    }
+    
+    .dark {
+        --background: 0 0% 5%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 8%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 8%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 330 100% 71%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 330 30% 15%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 330 20% 12%;
+        --muted-foreground: 0 0% 60%;
+        --accent: 330 100% 71%;
+        --accent-foreground: 0 0% 5%;
+        --border: 330 20% 18%;
+        --input: 330 20% 18%;
+        --ring: 330 100% 71%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+    }
+}
+
+/* Custom Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(330 100% 71% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(330 100% 71% / 0.6); }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: var(--gradient-pink-intense);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

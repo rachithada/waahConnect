@@ -1,0 +1,28 @@
+/* App.css */
+
+/* Remove default App styles that might interfere */
+.App {
+  min-height: 100vh;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
