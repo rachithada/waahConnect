@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const AdminMessages = () => {
 
@@ -6,7 +6,7 @@ const AdminMessages = () => {
   const [messages, setMessages] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     try {
 
       const res = await fetch(
@@ -19,7 +19,7 @@ const AdminMessages = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [password]);
 
   const login = () => {
     setLoggedIn(true);
@@ -37,7 +37,7 @@ const AdminMessages = () => {
 
     return () => clearInterval(interval);
 
-  }, [loggedIn]);
+  }, [loggedIn, fetchMessages]);
 
   const deleteMessage = async (id) => {
 
