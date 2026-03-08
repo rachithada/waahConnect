@@ -34,7 +34,7 @@ export const ContactCTA = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("https://YOUR-BACKEND-NAME.onrender.com/contact", {
+      const res = await fetch("https://waahconnect.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
