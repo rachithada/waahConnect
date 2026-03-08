@@ -28,7 +28,10 @@ app.add_middleware(
 def home():
     return{"message": "Backend is running"}
 
-client = AsyncIOMotorClient("mongodb://localhost:27017")
+client = AsyncIOMotorClient(
+    "mongodb+srv://rachitaug12_db_user:RachitHada08@@cluster0.gk9kdym.mongodb.net/?appName=Cluster0"
+)
+
 db = client["contact_db"]
 
 class ContactMessage(BaseModel):

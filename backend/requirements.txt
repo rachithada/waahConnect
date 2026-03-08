@@ -19,3 +19,4 @@ httpx==0.28.1
 aiofiles==25.1.0
 
 ultralytics==8.3.221
+pymongo[srv]
