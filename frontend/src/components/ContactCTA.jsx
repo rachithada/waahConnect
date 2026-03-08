@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,7 +34,7 @@ export const ContactCTA = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/contact", {
+      const res = await fetch("https://YOUR-BACKEND-NAME.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
