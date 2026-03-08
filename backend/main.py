@@ -29,7 +29,7 @@ def home():
     return{"message": "Backend is running"}
 
 client = AsyncIOMotorClient(
-    "mongodb+srv://rachitaug12_db_user:RachitHada08@@cluster0.gk9kdym.mongodb.net/?appName=Cluster0"
+    "mongodb+srv://rachitaug12_db_user:RachitHada08%40@cluster0.gk9kdym.mongodb.net/?retryWrites=true&w=majority"
 )
 
 db = client["contact_db"]
